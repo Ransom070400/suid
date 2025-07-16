@@ -68,9 +68,9 @@ const Mentors = () => {
     <section id="mentors" className="py-20 bg-gray-900 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-40 left-10 w-20 h-20 border-2 border-cyan-400 rotate-45 animate-pulse"></div>
-        <div className="absolute bottom-40 right-20 w-16 h-16 border-2 border-blue-500 rotate-12 animate-pulse delay-1000"></div>
-        <div className="absolute top-60 right-40 w-24 h-24 border-2 border-purple-500 rotate-45 animate-pulse delay-2000"></div>
+        <div className="absolute top-40 left-10 w-20 h-20 border-2 border-blue-600 rotate-45 animate-pulse"></div>
+        <div className="absolute bottom-40 right-20 w-16 h-16 border-2 border-blue-600 rotate-12 animate-pulse delay-1000"></div>
+        <div className="absolute top-60 right-40 w-24 h-24 border-2 border-blue-600 rotate-45 animate-pulse delay-2000"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -86,7 +86,7 @@ const Mentors = () => {
               Meet Your
             </span>
             <br />
-            <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-blue-600 bg-clip-text text-transparent">
               Mentors
             </span>
           </h2>
@@ -116,7 +116,7 @@ const Mentors = () => {
                     className="text-center md:text-right"
                   >
                     <div className="relative inline-block">
-                      <div className="w-64 h-64 rounded-3xl overflow-hidden border-4 border-gradient-to-r from-blue-500 to-cyan-400 p-1 bg-gradient-to-r from-blue-500 to-cyan-400">
+                      <div className="w-64 h-64 rounded-3xl overflow-hidden border-4 border-blue-600 p-1 bg-blue-600">
                         <img
                           src={mentors[currentMentor].image}
                           alt={mentors[currentMentor].name}
@@ -133,7 +133,7 @@ const Mentors = () => {
                               href={url}
                               whileHover={{ scale: 1.1 }}
                               whileTap={{ scale: 0.9 }}
-                              className="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full flex items-center justify-center hover:shadow-lg transition-shadow duration-200"
+                              className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:shadow-lg transition-shadow duration-200"
                               target="_blank"
                               rel="noopener noreferrer"
                             >
@@ -152,7 +152,7 @@ const Mentors = () => {
                     transition={{ duration: 0.6, delay: 0.3 }}
                   >
                     <div className="mb-2">
-                      <span className="text-sm font-medium text-cyan-400">{mentors[currentMentor].company}</span>
+                      <span className="text-sm font-medium text-blue-600">{mentors[currentMentor].company}</span>
                     </div>
                     <h3 className="text-3xl md:text-4xl font-bold text-white mb-2">
                       {mentors[currentMentor].name}
@@ -169,7 +169,7 @@ const Mentors = () => {
                         {mentors[currentMentor].expertise.map((skill, index) => (
                           <span
                             key={index}
-                            className="bg-gradient-to-r from-blue-500/20 to-cyan-400/20 text-cyan-400 px-4 py-2 rounded-full text-sm border border-cyan-400/30"
+                            className="bg-blue-600/20 text-blue-600 px-4 py-2 rounded-full text-sm border border-blue-600/30"
                           >
                             {skill}
                           </span>
@@ -206,7 +206,7 @@ const Mentors = () => {
                 onClick={() => goToMentor(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-200 ${
                   index === currentMentor
-                    ? 'bg-gradient-to-r from-blue-500 to-cyan-400 w-8'
+                    ? 'bg-blue-600 w-8'
                     : 'bg-gray-600 hover:bg-gray-500'
                 }`}
                 aria-label={`Go to mentor ${index + 1}`}

@@ -8,28 +8,28 @@ const Rewards = () => {
       title: 'Weekly Champions',
       description: 'Top 3 performers get featured on our community spotlight',
       icon: Trophy,
-      color: 'from-blue-500 to-cyan-400',
+      color: 'bg-blue-600',
       prize: 'Community Recognition + Sui Tokens'
     },
     {
       title: 'Assignment Excellence',
       description: 'Outstanding weekly submissions earn special recognition',
       icon: Star,
-      color: 'from-blue-500 to-cyan-400',
+      color: 'bg-blue-600',
       prize: 'Bonus Points + Mentor Feedback'
     },
     {
       title: 'Final Demo Awards',
       description: 'Best capstone projects win prestigious recognition',
       icon: Award,
-      color: 'from-blue-500 to-cyan-400',
+      color: 'bg-blue-600',
       prize: 'Industry Connections + Portfolio Boost'
     },
     {
       title: 'Participation Streaks',
       description: 'Consistent engagement earns streak multipliers',
       icon: Zap,
-      color: 'from-blue-500 to-cyan-400',
+      color: 'bg-blue-600',
       prize: 'Streak Badges + Bonus Rewards'
     }
   ];
@@ -46,8 +46,8 @@ const Rewards = () => {
     <section id="rewards" className="py-20 bg-gradient-to-br from-gray-800 to-gray-900 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-20 w-40 h-40 bg-blue-500 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-32 h-32 bg-cyan-400 rounded-full blur-2xl"></div>
+        <div className="absolute top-20 left-20 w-40 h-40 bg-blue-600 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-32 h-32 bg-blue-600 rounded-full blur-2xl"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -63,7 +63,7 @@ const Rewards = () => {
               Gamified Learning &
             </span>
             <br />
-            <span className="bg-gradient-to-r from-blue-400 to-blue-400 bg-clip-text text-transparent">
+            <span className="bg-blue-600 bg-clip-text text-transparent">
               Rewards
             </span>
           </h2>
@@ -95,13 +95,13 @@ const Rewards = () => {
                     className="bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-xl border border-gray-700 rounded-2xl p-6 hover:border-gray-600 transition-all duration-300"
                   >
                     <div className="flex items-start space-x-4">
-                      <div className={`w-12 h-12 bg-gradient-to-r ${reward.color} rounded-xl flex items-center justify-center flex-shrink-0`}>
+                      <div className={`w-12 h-12 ${reward.color} rounded-xl flex items-center justify-center flex-shrink-0`}>
                         <IconComponent className="w-6 h-6 text-white" />
                       </div>
                       <div className="flex-1">
                         <h4 className="text-xl font-bold text-white mb-2">{reward.title}</h4>
                         <p className="text-gray-400 mb-3">{reward.description}</p>
-                        <div className="text-sm font-medium text-cyan-400">{reward.prize}</div>
+                        <div className="text-sm font-medium text-blue-600">{reward.prize}</div>
                       </div>
                     </div>
                   </motion.div>
@@ -134,16 +134,13 @@ const Rewards = () => {
                     viewport={{ once: true }}
                     className={`flex items-center justify-between p-4 rounded-xl ${
                       student.rank <= 3 
-                        ? 'bg-gradient-to-r from-blue-500/20 to-cyan-400/20 border border-blue-500/30' 
+                        ? 'bg-blue-600/20 border border-blue-600/30' 
                         : 'bg-gray-800/50'
                     }`}
                   >
                     <div className="flex items-center space-x-4">
                       <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold ${
-                        student.rank === 1 ? 'bg-blue-500 text-white' :
-                        student.rank === 2 ? 'bg-cyan-400 text-white' :
-                        student.rank === 3 ? 'bg-blue-400 text-white' :
-                        'bg-gray-700 text-white'
+                        'bg-blue-600 text-white'
                       }`}>
                         {student.rank}
                       </div>
@@ -158,7 +155,7 @@ const Rewards = () => {
                       </div>
                     </div>
                     <div className="text-right">
-                      <div className="text-lg font-bold text-cyan-400">{student.points}</div>
+                      <div className="text-lg font-bold text-blue-600">{student.points}</div>
                       <div className="text-sm text-gray-400">points</div>
                     </div>
                   </motion.div>

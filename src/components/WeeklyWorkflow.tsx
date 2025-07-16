@@ -9,7 +9,7 @@ const WeeklyWorkflow = () => {
       title: 'New Lessons Drop',
       description: 'Fresh content releases + Community Townhall',
       icon: Calendar,
-      color: 'from-blue-500 to-cyan-400',
+      color: 'bg-blue-600',
       time: '6:00 PM WAT'
     },
     {
@@ -17,7 +17,7 @@ const WeeklyWorkflow = () => {
       title: 'Live Mentor Session',
       description: 'Q&A, code reviews, and personalized guidance',
       icon: Users,
-      color: 'from-blue-500 to-cyan-400',
+      color: 'bg-blue-600',
       time: '7:00 PM WAT'
     },
     {
@@ -25,7 +25,7 @@ const WeeklyWorkflow = () => {
       title: 'Assignment Deadline',
       description: 'Submit your weekly project and get feedback',
       icon: Clock,
-      color: 'from-blue-500 to-cyan-400',
+      color: 'bg-blue-600',
       time: '11:59 PM WAT'
     },
     {
@@ -33,7 +33,7 @@ const WeeklyWorkflow = () => {
       title: 'Leaderboard Update',
       description: 'See rankings and celebrate top performers',
       icon: Trophy,
-      color: 'from-blue-500 to-cyan-400',
+      color: 'bg-blue-600',
       time: 'After Townhall'
     }
   ];
@@ -86,7 +86,7 @@ const WeeklyWorkflow = () => {
               Weekly
             </span>
             <br />
-            <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-blue-600 bg-clip-text text-transparent">
               Workflow
             </span>
           </h2>
@@ -116,7 +116,7 @@ const WeeklyWorkflow = () => {
                 className="group"
               >
                 <div className="bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-xl border border-gray-700 rounded-2xl p-6 h-full hover:border-gray-600 transition-all duration-300">
-                  <div className={`w-14 h-14 bg-gradient-to-r ${item.color} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                  <div className={`w-14 h-14 ${item.color} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
                     <IconComponent className="w-7 h-7 text-white" />
                   </div>
                   
@@ -124,7 +124,7 @@ const WeeklyWorkflow = () => {
                     <div className="text-sm font-medium text-gray-400 mb-1">{item.day}</div>
                     <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
                     <p className="text-gray-400 text-sm leading-relaxed mb-3">{item.description}</p>
-                    <div className="text-xs text-cyan-400 font-medium">{item.time}</div>
+                    <div className="text-xs text-blue-600 font-medium">{item.time}</div>
                   </div>
                 </div>
               </motion.div>

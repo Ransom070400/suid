@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Play, FileText, Zap } from 'lucide-react';
+import { ChevronDown, FileText, Zap } from 'lucide-react';
 
 const Curriculum = () => {
   const [expandedWeek, setExpandedWeek] = useState<number | null>(null);
@@ -75,7 +75,7 @@ const Curriculum = () => {
               Program
             </span>
             <br />
-            <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-blue-600 bg-clip-text text-transparent">
               Curriculum
             </span>
           </h2>
@@ -103,7 +103,7 @@ const Curriculum = () => {
                   className="w-full p-6 text-left flex items-center justify-between"
                 >
                   <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full flex items-center justify-center">
+                    <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
                       <span className="text-white font-bold">{item.week}</span>
                     </div>
                     <div>
@@ -134,7 +134,7 @@ const Curriculum = () => {
                         <div className="grid md:grid-cols-2 gap-6">
                           <div className="bg-gray-800/50 rounded-xl p-4">
                             <div className="flex items-center space-x-2 mb-3">
-                              <FileText className="w-5 h-5 text-blue-400" />
+                              <FileText className="w-5 h-5 text-blue-600" />
                               <h4 className="font-semibold text-white">Assignment</h4>
                             </div>
                             <p className="text-gray-400">{item.assignment}</p>
@@ -142,14 +142,14 @@ const Curriculum = () => {
 
                           <div className="bg-gray-800/50 rounded-xl p-4">
                             <div className="flex items-center space-x-2 mb-3">
-                              <Zap className="w-5 h-5 text-cyan-400" />
+                              <Zap className="w-5 h-5 text-blue-600" />
                               <h4 className="font-semibold text-white">Skills Learned</h4>
                             </div>
                             <div className="flex flex-wrap gap-2">
                               {item.skills.map((skill, skillIndex) => (
                                 <span
                                   key={skillIndex}
-                                  className="bg-gradient-to-r from-blue-500/20 to-cyan-400/20 text-cyan-400 px-3 py-1 rounded-full text-sm border border-cyan-400/30"
+                                  className="bg-blue-600/20 text-blue-600 px-3 py-1 rounded-full text-sm border border-blue-600/30"
                                 >
                                   {skill}
                                 </span>
@@ -165,8 +165,6 @@ const Curriculum = () => {
             </motion.div>
           ))}
         </div>
-
-        
       </div>
     </section>
   );

@@ -138,9 +138,6 @@ const Hero = () => {
               
             </motion.h1>
 
-           
-
-
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -150,7 +147,7 @@ const Hero = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-blue-500 to-cyan-400 text-white px-8 py-4 rounded-full font-semibold text-lg flex items-center justify-center hover:shadow-xl transition-shadow duration-300"
+                className="bg-blue-600 text-white px-8 py-4 rounded-full font-semibold text-lg flex items-center justify-center hover:bg-blue-700 transition-colors duration-300"
               >
                 Apply Now
                 <ArrowRight className="ml-2 w-5 h-5" />

@@ -8,37 +8,37 @@ const WhyJoin = () => {
       icon: BookOpen,
       title: 'Beginner Friendly',
       description: 'No prior blockchain experience needed. Start from absolute zero and progress systematically.',
-      color: 'from-blue-500 to-cyan-400'
+      color: 'bg-blue-600'
     },
     {
       icon: Users,
       title: 'Live Mentorship',
       description: 'Weekly live sessions with industry experts and personalized guidance throughout your journey.',
-      color: 'from-blue-500 to-cyan-400'
+      color: 'bg-blue-600'
     },
     {
       icon: Rocket,
       title: 'Build Real dApps',
       description: 'Deploy actual decentralized applications on Sui blockchain with real-world use cases.',
-      color: 'from-blue-500 to-cyan-400'
+      color: 'bg-blue-600'
     },
     {
       icon: Trophy,
       title: 'Leaderboards & Rewards',
       description: 'Compete with peers, earn recognition, and win exciting prizes for top performers.',
-      color: 'from-blue-500 to-cyan-400'
+      color: 'bg-blue-600'
     },
     {
       icon: Code,
       title: 'Weekly Assignments',
       description: 'Hands-on coding challenges that reinforce learning and build your portfolio progressively.',
-      color: 'from-blue-500 to-cyan-400'
+      color: 'bg-blue-600'
     },
     {
       icon: Star,
       title: 'Final Demo Day',
       description: 'Showcase your capstone project to the community and graduate as a certified Move developer.',
-      color: 'from-blue-500 to-cyan-400'
+      color: 'bg-blue-600'
     }
   ];
 
@@ -68,8 +68,8 @@ const WhyJoin = () => {
     <section id="why-join" className="py-20 bg-gray-900 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-400 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-600 rounded-full blur-3xl"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -85,7 +85,7 @@ const WhyJoin = () => {
               Why Join the
             </span>
             <br />
-            <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-blue-600 bg-clip-text text-transparent">
               Bootcamp?
             </span>
           </h2>
@@ -115,7 +115,7 @@ const WhyJoin = () => {
               >
                 <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-xl border border-gray-700 rounded-2xl p-8 h-full hover:border-gray-600 transition-all duration-300">
                   <div className="mb-6">
-                    <div className={`w-16 h-16 bg-gradient-to-r ${benefit.color} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                    <div className={`w-16 h-16 ${benefit.color} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
                       <IconComponent className="w-8 h-8 text-white" />
                     </div>
                     <h3 className="text-2xl font-bold text-white mb-3">{benefit.title}</h3>
@@ -149,7 +149,7 @@ const WhyJoin = () => {
               viewport={{ once: true }}
               className="text-center"
             >
-              <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-2">
+              <div className="text-4xl md:text-5xl font-bold bg-blue-600 bg-clip-text text-transparent mb-2">
                 {stat.number}
               </div>
               <div className="text-gray-400">{stat.label}</div>

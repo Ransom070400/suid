@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X, LogIn, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 
 const Navigation = () => {
@@ -31,12 +31,16 @@ const Navigation = () => {
     setIsMobileMenuOpen(false);
   };
 
+  // Solid blue for enroll button
+  const enrollButtonClass =
+    "bg-blue-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-blue-700 transition-colors duration-200";
+
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
+        isScrolled
           ? 'bg-gray-900/95 backdrop-blur-md border-b border-gray-800'
           : 'bg-gray-900/80'
       }`}
@@ -56,9 +60,9 @@ const Navigation = () => {
             />
           </a>
 
-          {/* Centered Nav Items with Inline White Arrows */}
+          {/* Centered Nav Items - Hidden on mobile */}
           <div className="flex-1 flex justify-center items-center">
-            <div className="flex items-center space-x-8">
+            <div className="hidden md:flex items-center space-x-8">
               {navItems.map((item) => (
                 <button
                   key={item.label}
@@ -72,94 +76,53 @@ const Navigation = () => {
             </div>
           </div>
 
-          {/* Desktop Right: Login/Enroll */}
-          <div className="hidden md:flex items-center space-x-4">
-            {user ? (
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => scrollToSection('#apply')}
-                className="bg-gradient-to-r from-blue-500 to-cyan-400 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transition-shadow duration-200"
-              >
-                Enroll
-              </motion.button>
-            ) : (
-              <>
-                <motion.a
-                  href="/login"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors duration-200"
-                >
-                  <LogIn className="w-4 h-4" />
-                  <span>Login</span>
-                </motion.a>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => scrollToSection('#apply')}
-                  className="bg-gradient-to-r from-blue-500 to-cyan-400 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transition-shadow duration-200"
-                >
-                  Enroll
-                </motion.button>
-              </>
-            )}
+          {/* Desktop Right: Enroll only */}
+          <div className="hidden md:flex items-center">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => scrollToSection('#apply')}
+              className={enrollButtonClass}
+            >
+              Enroll
+            </motion.button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden text-white"
+            aria-label="Open navigation menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu as a bar */}
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden bg-gray-900/95 backdrop-blur-md rounded-lg mt-2 p-4"
+            className="md:hidden bg-gray-900/95 backdrop-blur-md rounded-lg mt-2 px-0 py-2"
           >
-            <div className="flex flex-col items-center space-y-4">
+            <div className="flex flex-row justify-center items-center space-x-2">
               {navItems.map((item) => (
                 <button
                   key={item.label}
                   onClick={() => scrollToSection(item.href)}
-                  className="flex items-center w-full justify-center text-gray-300 hover:text-white py-2 transition-colors duration-200 font-medium text-lg"
+                  className="flex items-center text-gray-300 hover:text-white px-4 py-2 transition-colors duration-200 font-medium text-lg"
                 >
                   {item.label}
                   <ChevronDown className="w-4 h-4 text-white ml-2" />
                 </button>
               ))}
-            </div>
-
-            <div className="mt-6 flex flex-col items-center space-y-2">
-              {user ? (
-                <button
-                  onClick={() => scrollToSection('#apply')}
-                  className="block w-full bg-gradient-to-r from-blue-500 to-cyan-400 text-white px-6 py-2 rounded-full font-semibold text-center hover:shadow-lg transition-shadow duration-200"
-                >
-                  Enroll
-                </button>
-              ) : (
-                <>
-                  <a
-                    href="/login"
-                    className="block w-full text-gray-300 hover:text-white py-2 text-center transition-colors duration-200"
-                  >
-                    Login
-                  </a>
-                  <button
-                    onClick={() => scrollToSection('#apply')}
-                    className="w-full bg-gradient-to-r from-blue-500 to-cyan-400 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transition-shadow duration-200"
-                  >
-                    Enroll
-                  </button>
-                </>
-              )}
+              <button
+                onClick={() => scrollToSection('#apply')}
+                className={`${enrollButtonClass} ml-2`}
+              >
+                Enroll
+              </button>
             </div>
           </motion.div>
         )}
