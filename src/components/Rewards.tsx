@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Trophy, Star, Award, Zap, Crown, Medal } from 'lucide-react';
+import { Trophy, Star, Award, Zap } from 'lucide-react';
 
 const Rewards = () => {
   const rewards = [
@@ -8,7 +8,7 @@ const Rewards = () => {
       title: 'Weekly Champions',
       description: 'Top 3 performers get featured on our community spotlight',
       icon: Trophy,
-      color: 'from-yellow-500 to-orange-400',
+      color: 'from-blue-500 to-cyan-400',
       prize: 'Community Recognition + Sui Tokens'
     },
     {
@@ -22,14 +22,14 @@ const Rewards = () => {
       title: 'Final Demo Awards',
       description: 'Best capstone projects win prestigious recognition',
       icon: Award,
-      color: 'from-purple-500 to-pink-400',
+      color: 'from-blue-500 to-cyan-400',
       prize: 'Industry Connections + Portfolio Boost'
     },
     {
       title: 'Participation Streaks',
       description: 'Consistent engagement earns streak multipliers',
       icon: Zap,
-      color: 'from-green-500 to-emerald-400',
+      color: 'from-blue-500 to-cyan-400',
       prize: 'Streak Badges + Bonus Rewards'
     }
   ];
@@ -42,19 +42,12 @@ const Rewards = () => {
     { rank: 5, name: 'Aman T.', points: 2350, country: '🇪🇹', streak: 4 }
   ];
 
-  const badges = [
-    { name: 'Move Master', icon: Crown, color: 'from-yellow-500 to-orange-400' },
-    { name: 'Quick Learner', icon: Zap, color: 'from-blue-500 to-cyan-400' },
-    { name: 'Team Player', icon: Star, color: 'from-purple-500 to-pink-400' },
-    { name: 'Code Warrior', icon: Medal, color: 'from-green-500 to-emerald-400' }
-  ];
-
   return (
     <section id="rewards" className="py-20 bg-gradient-to-br from-gray-800 to-gray-900 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-20 w-40 h-40 bg-yellow-500 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-32 h-32 bg-purple-500 rounded-full blur-2xl"></div>
+        <div className="absolute top-20 left-20 w-40 h-40 bg-blue-500 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-32 h-32 bg-cyan-400 rounded-full blur-2xl"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -70,7 +63,7 @@ const Rewards = () => {
               Gamified Learning &
             </span>
             <br />
-            <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-400 to-blue-400 bg-clip-text text-transparent">
               Rewards
             </span>
           </h2>
@@ -141,15 +134,15 @@ const Rewards = () => {
                     viewport={{ once: true }}
                     className={`flex items-center justify-between p-4 rounded-xl ${
                       student.rank <= 3 
-                        ? 'bg-gradient-to-r from-yellow-500/20 to-orange-400/20 border border-yellow-500/30' 
+                        ? 'bg-gradient-to-r from-blue-500/20 to-cyan-400/20 border border-blue-500/30' 
                         : 'bg-gray-800/50'
                     }`}
                   >
                     <div className="flex items-center space-x-4">
                       <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold ${
-                        student.rank === 1 ? 'bg-yellow-500 text-black' :
-                        student.rank === 2 ? 'bg-gray-400 text-black' :
-                        student.rank === 3 ? 'bg-orange-600 text-white' :
+                        student.rank === 1 ? 'bg-blue-500 text-white' :
+                        student.rank === 2 ? 'bg-cyan-400 text-white' :
+                        student.rank === 3 ? 'bg-blue-400 text-white' :
                         'bg-gray-700 text-white'
                       }`}>
                         {student.rank}
@@ -174,40 +167,6 @@ const Rewards = () => {
             </div>
           </motion.div>
         </div>
-
-        {/* Badge System */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <h3 className="text-3xl font-bold text-white mb-8">Achievement Badges</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {badges.map((badge, index) => {
-              const IconComponent = badge.icon;
-              return (
-                <motion.div
-                  key={badge.name}
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ scale: 1.1 }}
-                  className="group"
-                >
-                  <div className="bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-xl border border-gray-700 rounded-2xl p-6 hover:border-gray-600 transition-all duration-300">
-                    <div className={`w-16 h-16 bg-gradient-to-r ${badge.color} rounded-2xl mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                      <IconComponent className="w-8 h-8 text-white" />
-                    </div>
-                    <h4 className="text-white font-semibold">{badge.name}</h4>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-        </motion.div>
       </div>
     </section>
   );

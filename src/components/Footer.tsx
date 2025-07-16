@@ -25,16 +25,18 @@ const Footer = () => {
   };
 
   const socialLinks = [
-    { name: 'Twitter', icon: Twitter, href: '#', color: 'hover:text-blue-400' },
-    { name: 'GitHub', icon: Github, href: '#', color: 'hover:text-gray-300' },
-    { name: 'Discord', icon: MessageCircle, href: '#', color: 'hover:text-purple-400' },
+    { name: 'Twitter', icon: Twitter, href: 'https://x.com/SuiHubAfrica', color: 'hover:text-blue-400' },
+    { name: 'Telegram', icon: MessageCircle, href: '#', color: 'hover:text-purple-400' },
     { name: 'Email', icon: Mail, href: 'mailto:hello@suihubafrica.com', color: 'hover:text-cyan-400' }
   ];
 
   const partners = [
-    { name: 'Sui Foundation', logo: 'S' },
-    { name: 'Mysten Labs', logo: 'M' },
-    { name: 'African Tech Hub', logo: 'A' }
+    { name: 'Sui Foundation', logo: <img
+              src="https://cocozqaswhyugfbilbxk.supabase.co/storage/v1/object/public/suihub//Sui_Symbol_White.png"
+              
+              className="w-10 h-10 object-contain"
+            /> },
+    
   ];
 
   return (
@@ -57,8 +59,12 @@ const Footer = () => {
               className="lg:col-span-1"
             >
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-xl flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">S</span>
+                <div className="w-10 h-10 bg-gradient-to-r from--500 to-cyan-400 rounded-xl flex items-center justify-center">
+                  <img
+              src="https://cocozqaswhyugfbilbxk.supabase.co/storage/v1/object/public/suihub//Sui_Symbol_White.png"
+              alt="Sui Hub Logo"
+              className="w-10 h-10 object-contain"
+            />
                 </div>
                 <span className="text-white font-bold text-xl">Sui Hub Africa</span>
               </div>
@@ -121,7 +127,7 @@ const Footer = () => {
           className="py-8 border-t border-gray-800"
         >
           <div className="text-center mb-8">
-            <h4 className="text-gray-400 text-sm font-medium mb-6">Powered by</h4>
+            <h4 className="text-gray-400 text-sm font-medium mb-6">Sponsored by</h4>
             <div className="flex justify-center items-center space-x-8">
               {partners.map((partner, index) => (
                 <motion.div
@@ -133,7 +139,7 @@ const Footer = () => {
                   whileHover={{ scale: 1.05 }}
                   className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors duration-200"
                 >
-                  <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-lg flex items-center justify-center">
+                  <div className="w-8 h-8 bg-gradient-to-r from--500 to-cyan-400 rounded-lg flex items-center justify-center">
                     <span className="text-white font-bold text-sm">{partner.logo}</span>
                   </div>
                   <span className="font-medium">{partner.name}</span>

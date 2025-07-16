@@ -17,7 +17,7 @@ const WeeklyWorkflow = () => {
       title: 'Live Mentor Session',
       description: 'Q&A, code reviews, and personalized guidance',
       icon: Users,
-      color: 'from-purple-500 to-pink-400',
+      color: 'from-blue-500 to-cyan-400',
       time: '7:00 PM WAT'
     },
     {
@@ -25,7 +25,7 @@ const WeeklyWorkflow = () => {
       title: 'Assignment Deadline',
       description: 'Submit your weekly project and get feedback',
       icon: Clock,
-      color: 'from-orange-500 to-red-400',
+      color: 'from-blue-500 to-cyan-400',
       time: '11:59 PM WAT'
     },
     {
@@ -33,7 +33,7 @@ const WeeklyWorkflow = () => {
       title: 'Leaderboard Update',
       description: 'See rankings and celebrate top performers',
       icon: Trophy,
-      color: 'from-green-500 to-emerald-400',
+      color: 'from-blue-500 to-cyan-400',
       time: 'After Townhall'
     }
   ];
@@ -130,52 +130,6 @@ const WeeklyWorkflow = () => {
               </motion.div>
             );
           })}
-        </motion.div>
-
-        {/* Weekly Timeline Visualization */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-xl border border-gray-700 rounded-3xl p-8"
-        >
-          <h3 className="text-2xl font-bold text-white text-center mb-8">Sample Week Timeline</h3>
-          
-          <div className="grid grid-cols-7 gap-2 text-center">
-            {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((day, index) => (
-              <div key={day} className="py-2">
-                <div className="text-sm font-medium text-gray-400 mb-2">{day}</div>
-                <div className="space-y-1">
-                  {index === 0 && (
-                    <>
-                      <div className="bg-gradient-to-r from-blue-500 to-cyan-400 rounded-lg p-2 text-xs text-white">
-                        Lessons Drop
-                      </div>
-                      <div className="bg-gradient-to-r from-green-500 to-emerald-400 rounded-lg p-2 text-xs text-white">
-                        Leaderboard
-                      </div>
-                    </>
-                  )}
-                  {index === 3 && (
-                    <div className="bg-gradient-to-r from-purple-500 to-pink-400 rounded-lg p-2 text-xs text-white">
-                      Live Session
-                    </div>
-                  )}
-                  {index === 6 && (
-                    <div className="bg-gradient-to-r from-orange-500 to-red-400 rounded-lg p-2 text-xs text-white">
-                      Deadline
-                    </div>
-                  )}
-                  {index !== 0 && index !== 3 && index !== 6 && (
-                    <div className="bg-gray-700/50 rounded-lg p-2 text-xs text-gray-500">
-                      Study Time
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
         </motion.div>
       </div>
     </section>

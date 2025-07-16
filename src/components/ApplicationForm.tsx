@@ -100,6 +100,39 @@ const ApplicationForm = () => {
                   />
                 </div>
 
+                 <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                    Github Repo Link *
+                  </label>
+                  <input
+                    type="name"
+                    id="Github"
+                    name="Github"
+                    required
+                    value={formData.link}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-200"
+                    placeholder="https://github.com/user"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                    X Link *
+                  </label>
+                  <input
+                    type="name"
+                    id="X"
+                    name="X"
+                    required
+                    value={formData.link}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-200"
+                    placeholder="https://x.com/user"
+                  />
+                </div>
+
+
                 <div>
                   <label htmlFor="country" className="block text-sm font-medium text-gray-300 mb-2">
                     Country *
@@ -201,27 +234,13 @@ const ApplicationForm = () => {
                     <MessageCircle className="w-6 h-6 text-white" />
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-white font-semibold">Join Discord</h4>
+                    <h4 className="text-white font-semibold">Join Telegram</h4>
                     <p className="text-gray-400 text-sm">Chat with the community</p>
                   </div>
                   <ArrowRight className="w-5 h-5 text-blue-400" />
                 </motion.a>
 
-                <motion.a
-                  href="#"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="flex items-center space-x-4 bg-cyan-600/20 border border-cyan-500/30 rounded-2xl p-4 hover:bg-cyan-600/30 transition-colors duration-200"
-                >
-                  <div className="w-12 h-12 bg-cyan-500 rounded-xl flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="text-white font-semibold">Subscribe to Updates</h4>
-                    <p className="text-gray-400 text-sm">Get the latest news</p>
-                  </div>
-                  <ArrowRight className="w-5 h-5 text-cyan-400" />
-                </motion.a>
+                
               </div>
             </div>
 

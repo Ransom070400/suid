@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X, LogIn } from 'lucide-react';
+import { Menu, X, LogIn, ChevronDown } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 
 const Navigation = () => {
@@ -20,11 +20,10 @@ const Navigation = () => {
   const navItems = [
     { label: 'Home', href: '#home' },
     { label: 'Program', href: '#curriculum' },
-    { label: 'Mentors', href: '#mentors' },
-    { label: 'Apply', href: '#apply' }
+    { label: 'Mentors', href: '#mentors' }
   ];
 
-  const scrollToSection = (href: string) => {
+  const scrollToSection = (href) => {
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -38,43 +37,52 @@ const Navigation = () => {
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-gray-900/80 backdrop-blur-md border-b border-gray-800' 
-          : 'bg-transparent'
+          ? 'bg-gray-900/95 backdrop-blur-md border-b border-gray-800'
+          : 'bg-gray-900/80'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="flex items-center space-x-2"
+          {/* Logo as a link */}
+          <a
+            href="/"
+            className="flex items-center"
+            aria-label="Go to homepage"
           >
-            <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">S</span>
-            </div>
-            <span className="text-white font-bold text-lg">Sui Hub Africa</span>
-          </motion.div>
+            <img
+              src="https://cocozqaswhyugfbilbxk.supabase.co/storage/v1/object/public/suihub//Sui_Symbol_White.png"
+              alt="Sui Hub Logo"
+              className="w-10 h-10 object-contain"
+            />
+          </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <button
-                key={item.label}
-                onClick={() => scrollToSection(item.href)}
-                className="text-gray-300 hover:text-white transition-colors duration-200"
-              >
-                {item.label}
-              </button>
-            ))}
-            
+          {/* Centered Nav Items with Inline White Arrows */}
+          <div className="flex-1 flex justify-center items-center">
+            <div className="flex items-center space-x-8">
+              {navItems.map((item) => (
+                <button
+                  key={item.label}
+                  onClick={() => scrollToSection(item.href)}
+                  className="flex items-center text-gray-300 hover:text-white transition-colors duration-200 font-medium text-lg"
+                >
+                  {item.label}
+                  <ChevronDown className="w-4 h-4 text-white ml-2" />
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop Right: Login/Enroll */}
+          <div className="hidden md:flex items-center space-x-4">
             {user ? (
-              <motion.a
-                href="/dashboard"
+              <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => scrollToSection('#apply')}
                 className="bg-gradient-to-r from-blue-500 to-cyan-400 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transition-shadow duration-200"
               >
-                Dashboard
-              </motion.a>
+                Enroll
+              </motion.button>
             ) : (
               <>
                 <motion.a
@@ -92,7 +100,7 @@ const Navigation = () => {
                   onClick={() => scrollToSection('#apply')}
                   className="bg-gradient-to-r from-blue-500 to-cyan-400 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transition-shadow duration-200"
                 >
-                  Apply Now
+                  Enroll
                 </motion.button>
               </>
             )}
@@ -113,41 +121,46 @@ const Navigation = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden bg-gray-800/90 backdrop-blur-md rounded-lg mt-2 p-4"
+            className="md:hidden bg-gray-900/95 backdrop-blur-md rounded-lg mt-2 p-4"
           >
-            {navItems.map((item) => (
-              <button
-                key={item.label}
-                onClick={() => scrollToSection(item.href)}
-                className="block w-full text-left text-gray-300 hover:text-white py-2 transition-colors duration-200"
-              >
-                {item.label}
-              </button>
-            ))}
-            
-            {user ? (
-              <a
-                href="/dashboard"
-                className="block w-full bg-gradient-to-r from-blue-500 to-cyan-400 text-white px-6 py-2 rounded-full font-semibold mt-4 text-center hover:shadow-lg transition-shadow duration-200"
-              >
-                Dashboard
-              </a>
-            ) : (
-              <>
-                <a
-                  href="/login"
-                  className="block w-full text-gray-300 hover:text-white py-2 transition-colors duration-200"
+            <div className="flex flex-col items-center space-y-4">
+              {navItems.map((item) => (
+                <button
+                  key={item.label}
+                  onClick={() => scrollToSection(item.href)}
+                  className="flex items-center w-full justify-center text-gray-300 hover:text-white py-2 transition-colors duration-200 font-medium text-lg"
                 >
-                  Login
-                </a>
+                  {item.label}
+                  <ChevronDown className="w-4 h-4 text-white ml-2" />
+                </button>
+              ))}
+            </div>
+
+            <div className="mt-6 flex flex-col items-center space-y-2">
+              {user ? (
                 <button
                   onClick={() => scrollToSection('#apply')}
-                  className="w-full bg-gradient-to-r from-blue-500 to-cyan-400 text-white px-6 py-2 rounded-full font-semibold mt-4 hover:shadow-lg transition-shadow duration-200"
+                  className="block w-full bg-gradient-to-r from-blue-500 to-cyan-400 text-white px-6 py-2 rounded-full font-semibold text-center hover:shadow-lg transition-shadow duration-200"
                 >
-                  Apply Now
+                  Enroll
                 </button>
-              </>
-            )}
+              ) : (
+                <>
+                  <a
+                    href="/login"
+                    className="block w-full text-gray-300 hover:text-white py-2 text-center transition-colors duration-200"
+                  >
+                    Login
+                  </a>
+                  <button
+                    onClick={() => scrollToSection('#apply')}
+                    className="w-full bg-gradient-to-r from-blue-500 to-cyan-400 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transition-shadow duration-200"
+                  >
+                    Enroll
+                  </button>
+                </>
+              )}
+            </div>
           </motion.div>
         )}
       </div>

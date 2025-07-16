@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Github, Linkedin, Twitter } from 'lucide-react';
 
@@ -7,58 +7,50 @@ const Mentors = () => {
 
   const mentors = [
     {
-      name: 'Dr. Amina Hassan',
-      role: 'Senior Blockchain Architect',
+      name: 'Jenny',
+      role: 'Sui Hub Ambassador',
       company: 'Sui Foundation',
-      bio: 'Former Google engineer with 8+ years in blockchain development. Led the development of multiple DeFi protocols on Sui with over $50M TVL.',
-      expertise: ['Move Programming', 'DeFi Protocols', 'Smart Contract Security'],
-      image: 'https://images.pexels.com/photos/3184295/pexels-photo-3184295.jpeg?auto=compress&cs=tinysrgb&w=400',
+      bio: 'Sui Network Ambassador',
+      expertise: ['Program Management', 'Operational Manager'],
+      image: 'https://cocozqaswhyugfbilbxk.supabase.co/storage/v1/object/public/suihub//jenny.jpg',
       socials: {
-        twitter: '#',
-        github: '#',
-        linkedin: '#'
+        twitter: 'https://x.com/rainbowsdotsui',
       }
     },
     {
-      name: 'Kofi Asante',
-      role: 'Web3 Product Manager',
-      company: 'Mysten Labs',
-      bio: 'Product lead for several successful Web3 startups. Expert in tokenomics design and community building with 5+ years in African blockchain ecosystem.',
-      expertise: ['Product Strategy', 'Tokenomics', 'Community Building'],
-      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
+      name: 'Suigold',
+      role: 'Developer Lead',
+      company: 'Sui On Campus',
+      bio: 'Developer Relation',
+      expertise: ['Cryptography', 'Move', 'Jesus'],
+      image: 'https://cocozqaswhyugfbilbxk.supabase.co/storage/v1/object/public/suihub//suigold.jpg',
       socials: {
-        twitter: '#',
-        github: '#',
-        linkedin: '#'
+        twitter: 'https://x.com/0xgeorgegoldman',
+        github: 'https://github.com/georgegoldman',
       }
     },
     {
-      name: 'Sarah Okafor',
-      role: 'Full-Stack Developer',
-      company: 'Independent Consultant',
-      bio: 'Full-stack developer specializing in dApp development. Built and deployed 20+ applications on various blockchains with focus on user experience.',
-      expertise: ['Frontend Development', 'dApp Architecture', 'UI/UX Design'],
-      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400',
+      name: 'Ransome',
+      role: 'Bootcamp facilitor',
+      company: 'Sui Nigeria',
+      bio: 'Web3 Developer',
+      expertise: ['Frontend Development', 'Smart Contract', 'Community Building', 'Program Management'],
+      image: 'https://cocozqaswhyugfbilbxk.supabase.co/storage/v1/object/public/suihub//ransomsui.jpg',
       socials: {
-        twitter: '#',
-        github: '#',
-        linkedin: '#'
+        twitter: 'https://x.com/EzeRansome',
+        github: 'https://github.com/Ransom070400',
       }
     },
-    {
-      name: 'Marcus Chen',
-      role: 'DevRel Engineer',
-      company: 'Sui Ecosystem',
-      bio: 'Developer Relations expert with deep knowledge of Sui ecosystem. Regular speaker at blockchain conferences and author of popular Sui tutorials.',
-      expertise: ['Developer Experience', 'Technical Writing', 'Community Education'],
-      image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400',
-      socials: {
-        twitter: '#',
-        github: '#',
-        linkedin: '#'
-      }
-    }
   ];
+
+  // Auto-slide effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentMentor(prev => (prev + 1) % mentors.length);
+    }, 3500); // 3.5 seconds per slide
+
+    return () => clearInterval(interval);
+  }, [mentors.length]);
 
   const nextMentor = () => {
     setCurrentMentor((prev) => (prev + 1) % mentors.length);
@@ -68,7 +60,7 @@ const Mentors = () => {
     setCurrentMentor((prev) => (prev - 1 + mentors.length) % mentors.length);
   };
 
-  const goToMentor = (index: number) => {
+  const goToMentor = (index) => {
     setCurrentMentor(index);
   };
 
@@ -142,6 +134,8 @@ const Mentors = () => {
                               whileHover={{ scale: 1.1 }}
                               whileTap={{ scale: 0.9 }}
                               className="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full flex items-center justify-center hover:shadow-lg transition-shadow duration-200"
+                              target="_blank"
+                              rel="noopener noreferrer"
                             >
                               <IconComponent className="w-5 h-5 text-white" />
                             </motion.a>
@@ -191,12 +185,14 @@ const Mentors = () => {
             <button
               onClick={prevMentor}
               className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-gray-800/80 backdrop-blur-sm border border-gray-600 rounded-full flex items-center justify-center text-white hover:bg-gray-700/80 transition-colors duration-200"
+              aria-label="Previous Mentor"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
             <button
               onClick={nextMentor}
               className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-gray-800/80 backdrop-blur-sm border border-gray-600 rounded-full flex items-center justify-center text-white hover:bg-gray-700/80 transition-colors duration-200"
+              aria-label="Next Mentor"
             >
               <ChevronRight className="w-6 h-6" />
             </button>
@@ -213,6 +209,7 @@ const Mentors = () => {
                     ? 'bg-gradient-to-r from-blue-500 to-cyan-400 w-8'
                     : 'bg-gray-600 hover:bg-gray-500'
                 }`}
+                aria-label={`Go to mentor ${index + 1}`}
               />
             ))}
           </div>

@@ -14,31 +14,31 @@ const WhyJoin = () => {
       icon: Users,
       title: 'Live Mentorship',
       description: 'Weekly live sessions with industry experts and personalized guidance throughout your journey.',
-      color: 'from-purple-500 to-pink-400'
+      color: 'from-blue-500 to-cyan-400'
     },
     {
       icon: Rocket,
       title: 'Build Real dApps',
       description: 'Deploy actual decentralized applications on Sui blockchain with real-world use cases.',
-      color: 'from-green-500 to-emerald-400'
+      color: 'from-blue-500 to-cyan-400'
     },
     {
       icon: Trophy,
       title: 'Leaderboards & Rewards',
       description: 'Compete with peers, earn recognition, and win exciting prizes for top performers.',
-      color: 'from-orange-500 to-red-400'
+      color: 'from-blue-500 to-cyan-400'
     },
     {
       icon: Code,
       title: 'Weekly Assignments',
       description: 'Hands-on coding challenges that reinforce learning and build your portfolio progressively.',
-      color: 'from-indigo-500 to-purple-400'
+      color: 'from-blue-500 to-cyan-400'
     },
     {
       icon: Star,
       title: 'Final Demo Day',
       description: 'Showcase your capstone project to the community and graduate as a certified Move developer.',
-      color: 'from-cyan-500 to-blue-400'
+      color: 'from-blue-500 to-cyan-400'
     }
   ];
 
