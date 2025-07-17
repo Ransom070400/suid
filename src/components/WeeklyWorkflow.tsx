@@ -9,7 +9,7 @@ const WeeklyWorkflow = () => {
       title: 'New Lessons Drop',
       description: 'Fresh content releases + Community Townhall',
       icon: Calendar,
-      color: 'bg-blue-600',
+      color: 'bg-[#4DA2FF]',
       time: '6:00 PM WAT'
     },
     {
@@ -17,7 +17,7 @@ const WeeklyWorkflow = () => {
       title: 'Live Mentor Session',
       description: 'Q&A, code reviews, and personalized guidance',
       icon: Users,
-      color: 'bg-blue-600',
+      color: 'bg-[#4DA2FF]',
       time: '7:00 PM WAT'
     },
     {
@@ -25,7 +25,7 @@ const WeeklyWorkflow = () => {
       title: 'Assignment Deadline',
       description: 'Submit your weekly project and get feedback',
       icon: Clock,
-      color: 'bg-blue-600',
+      color: 'bg-[#4DA2FF]',
       time: '11:59 PM WAT'
     },
     {
@@ -33,7 +33,7 @@ const WeeklyWorkflow = () => {
       title: 'Leaderboard Update',
       description: 'See rankings and celebrate top performers',
       icon: Trophy,
-      color: 'bg-blue-600',
+      color: 'bg-[#4DA2FF]',
       time: 'After Townhall'
     }
   ];
@@ -66,8 +66,8 @@ const WeeklyWorkflow = () => {
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
           backgroundImage: `
-            linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
+            linear-gradient(rgba(77, 162, 255, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(77, 162, 255, 0.1) 1px, transparent 1px)
           `,
           backgroundSize: '50px 50px'
         }}></div>
@@ -86,7 +86,7 @@ const WeeklyWorkflow = () => {
               Weekly
             </span>
             <br />
-            <span className="bg-blue-600 bg-clip-text text-transparent">
+            <span className="bg-[#4DA2FF] bg-clip-text text-transparent">
               Workflow
             </span>
           </h2>
@@ -124,7 +124,7 @@ const WeeklyWorkflow = () => {
                     <div className="text-sm font-medium text-gray-400 mb-1">{item.day}</div>
                     <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
                     <p className="text-gray-400 text-sm leading-relaxed mb-3">{item.description}</p>
-                    <div className="text-xs text-blue-600 font-medium">{item.time}</div>
+                    <div className="text-xs text-[#4DA2FF] font-medium">{item.time}</div>
                   </div>
                 </div>
               </motion.div>

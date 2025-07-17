@@ -30,8 +30,8 @@ const ApplicationForm = () => {
     <section id="apply" className="py-20 bg-gray-900 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-20 w-32 h-32 bg-blue-600 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-40 h-40 bg-blue-600 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-20 w-32 h-32 bg-[#4DA2FF] rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-40 h-40 bg-[#4DA2FF] rounded-full blur-3xl"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-purple-500 rounded-full blur-3xl"></div>
       </div>
 
@@ -48,7 +48,7 @@ const ApplicationForm = () => {
               Ready to Start Your
             </span>
             <br />
-            <span className="bg-blue-600 bg-clip-text text-transparent">
+            <span className="bg-[#4DA2FF] bg-clip-text text-transparent">
               Journey?
             </span>
           </h2>
@@ -81,7 +81,7 @@ const ApplicationForm = () => {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 transition-all duration-200"
+                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-[#4DA2FF] focus:ring-2 focus:ring-[#4DA2FF]/20 transition-all duration-200"
                     placeholder="Enter your full name"
                   />
                 </div>
@@ -97,7 +97,7 @@ const ApplicationForm = () => {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 transition-all duration-200"
+                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-[#4DA2FF] focus:ring-2 focus:ring-[#4DA2FF]/20 transition-all duration-200"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -113,7 +113,7 @@ const ApplicationForm = () => {
                     required
                     value={formData.Github}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 transition-all duration-200"
+                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-[#4DA2FF] focus:ring-2 focus:ring-[#4DA2FF]/20 transition-all duration-200"
                     placeholder="https://github.com/user"
                   />
                 </div>
@@ -129,7 +129,7 @@ const ApplicationForm = () => {
                     required
                     value={formData.X}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 transition-all duration-200"
+                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-[#4DA2FF] focus:ring-2 focus:ring-[#4DA2FF]/20 transition-all duration-200"
                     placeholder="https://x.com/user"
                   />
                 </div>
@@ -144,7 +144,7 @@ const ApplicationForm = () => {
                     required
                     value={formData.country}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-xl text-white focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 transition-all duration-200"
+                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-xl text-white focus:outline-none focus:border-[#4DA2FF] focus:ring-2 focus:ring-[#4DA2FF]/20 transition-all duration-200"
                   >
                     <option value="">Select your country</option>
                     <option value="Nigeria">🇳🇬 Nigeria</option>
@@ -156,7 +156,7 @@ const ApplicationForm = () => {
                     <option value="Morocco">🇲🇦 Morocco</option>
                     <option value="Uganda">🇺🇬 Uganda</option>
                     <option value="Tanzania">🇹🇿 Tanzania</option>
-                    <option value="Other">🌍 Other African Country</option>
+                    <option value="Other">🌍 Other Country</option>
                   </select>
                 </div>
 
@@ -170,7 +170,7 @@ const ApplicationForm = () => {
                     required
                     value={formData.experience}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-xl text-white focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 transition-all duration-200"
+                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-xl text-white focus:outline-none focus:border-[#4DA2FF] focus:ring-2 focus:ring-[#4DA2FF]/20 transition-all duration-200"
                   >
                     <option value="">Select your level</option>
                     <option value="Complete Beginner">Complete Beginner (No coding experience)</option>
@@ -191,7 +191,7 @@ const ApplicationForm = () => {
                     rows={4}
                     value={formData.motivation}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 transition-all duration-200 resize-none"
+                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-[#4DA2FF] focus:ring-2 focus:ring-[#4DA2FF]/20 transition-all duration-200 resize-none"
                     placeholder="Tell us about your goals and motivation for joining the bootcamp..."
                   />
                 </div>
@@ -200,7 +200,7 @@ const ApplicationForm = () => {
                   type="submit"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-blue-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-shadow duration-300 flex items-center justify-center"
+                  className="w-full bg-[#4DA2FF] text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-shadow duration-300 flex items-center justify-center"
                 >
                   Submit Application
                   <Send className="ml-2 w-5 h-5" />
@@ -229,16 +229,16 @@ const ApplicationForm = () => {
                   href="#"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="flex items-center space-x-4 bg-blue-600/20 border border-blue-600/30 rounded-2xl p-4 hover:bg-blue-600/30 transition-colors duration-200"
+                  className="flex items-center space-x-4 bg-[#4DA2FF]/20 border border-[#4DA2FF]/30 rounded-2xl p-4 hover:bg-[#4DA2FF]/30 transition-colors duration-200"
                 >
-                  <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-[#4DA2FF] rounded-xl flex items-center justify-center">
                     <MessageCircle className="w-6 h-6 text-white" />
                   </div>
                   <div className="flex-1">
                     <h4 className="text-white font-semibold">Join Telegram</h4>
                     <p className="text-gray-400 text-sm">Chat with the community</p>
                   </div>
-                  <ArrowRight className="w-5 h-5 text-blue-600" />
+                  <ArrowRight className="w-5 h-5 text-[#4DA2FF]" />
                 </motion.a>
               </div>
             </div>

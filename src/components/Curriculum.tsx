@@ -75,7 +75,7 @@ const Curriculum = () => {
               Program
             </span>
             <br />
-            <span className="bg-blue-600 bg-clip-text text-transparent">
+            <span className="bg-[#4DA2FF] bg-clip-text text-transparent">
               Curriculum
             </span>
           </h2>
@@ -103,7 +103,7 @@ const Curriculum = () => {
                   className="w-full p-6 text-left flex items-center justify-between"
                 >
                   <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
+                    <div className="w-12 h-12 bg-[#4DA2FF] rounded-full flex items-center justify-center">
                       <span className="text-white font-bold">{item.week}</span>
                     </div>
                     <div>
@@ -134,7 +134,7 @@ const Curriculum = () => {
                         <div className="grid md:grid-cols-2 gap-6">
                           <div className="bg-gray-800/50 rounded-xl p-4">
                             <div className="flex items-center space-x-2 mb-3">
-                              <FileText className="w-5 h-5 text-blue-600" />
+                              <FileText className="w-5 h-5 text-[#4DA2FF]" />
                               <h4 className="font-semibold text-white">Assignment</h4>
                             </div>
                             <p className="text-gray-400">{item.assignment}</p>
@@ -142,14 +142,14 @@ const Curriculum = () => {
 
                           <div className="bg-gray-800/50 rounded-xl p-4">
                             <div className="flex items-center space-x-2 mb-3">
-                              <Zap className="w-5 h-5 text-blue-600" />
+                              <Zap className="w-5 h-5 text-[#4DA2FF]" />
                               <h4 className="font-semibold text-white">Skills Learned</h4>
                             </div>
                             <div className="flex flex-wrap gap-2">
                               {item.skills.map((skill, skillIndex) => (
                                 <span
                                   key={skillIndex}
-                                  className="bg-blue-600/20 text-blue-600 px-3 py-1 rounded-full text-sm border border-blue-600/30"
+                                  className="bg-[#4DA2FF] bg-opacity-20 text-[#4DA2FF] px-3 py-1 rounded-full text-sm border border-[#4DA2FF]/30"
                                 >
                                   {skill}
                                 </span>

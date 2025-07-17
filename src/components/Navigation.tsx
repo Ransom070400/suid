@@ -1,16 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [scrollDirection, setScrollDirection] = useState<'up' | 'down' | null>(null);
   const { user } = useAuth();
 
   useEffect(() => {
+    let lastScrollY = window.scrollY;
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+
+      // Determine scroll direction
+      if (window.scrollY > lastScrollY) {
+        setScrollDirection('down');
+      } else if (window.scrollY < lastScrollY) {
+        setScrollDirection('up');
+      }
+      lastScrollY = window.scrollY;
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -33,7 +43,7 @@ const Navigation = () => {
 
   // Solid blue for enroll button
   const enrollButtonClass =
-    "bg-blue-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-blue-700 transition-colors duration-200";
+    "bg-[#4DA2FF] text-white px-6 py-2 rounded-full font-semibold hover:bg-[#358be0] transition-colors duration-200";
 
   return (
     <motion.nav
@@ -47,18 +57,36 @@ const Navigation = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo as a link */}
-          <a
-            href="/"
-            className="flex items-center"
-            aria-label="Go to homepage"
-          >
-            <img
-              src="https://cocozqaswhyugfbilbxk.supabase.co/storage/v1/object/public/suihub//Sui_Symbol_White.png"
-              alt="Sui Hub Logo"
-              className="w-10 h-10 object-contain"
-            />
-          </a>
+          {/* Logo and Brand Text */}
+          <div className="flex items-center">
+            <a
+              href="/"
+              className="flex items-center"
+              aria-label="Go to homepage"
+            >
+              <img
+                src="https://cocozqaswhyugfbilbxk.supabase.co/storage/v1/object/public/suihub//Sui_Symbol_White.png"
+                alt="Sui Hub Logo"
+                className="w-10 h-10 object-contain"
+              />
+            </a>
+            {/* Animated Brand Text */}
+            <AnimatePresence>
+              {scrollDirection !== 'down' && (
+                <motion.span
+                  key="suihub-africa"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.35, type: "tween" }}
+                  className="ml-3 text-xl font-semibold text-[#FFFFFF] select-none hidden sm:inline-block"
+                  style={{ whiteSpace: 'nowrap' }}
+                >
+                  Sui Hub Africa
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </div>
 
           {/* Centered Nav Items - Hidden on mobile */}
           <div className="flex-1 flex justify-center items-center">

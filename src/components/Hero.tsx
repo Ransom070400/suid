@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
+const COUNTDOWN_KEY = 'suihub_countdown_target';
+
 const Hero = () => {
   const [timeLeft, setTimeLeft] = useState({
     days: 60,
@@ -14,9 +16,15 @@ const Hero = () => {
   const bgRef = useRef(null);
 
   useEffect(() => {
-    // Set countdown target to 60 days from NOW (when component mounts)
-    const now = new Date();
-    const targetDate = new Date(now.getTime() + 60 * 24 * 60 * 60 * 1000).getTime();
+    // Persist the countdown target date in localStorage
+    let targetDate = localStorage.getItem(COUNTDOWN_KEY);
+    if (!targetDate) {
+      // Only set once: 60 days from now
+      const now = new Date();
+      targetDate = new Date(now.getTime() + 60 * 24 * 60 * 60 * 1000).getTime().toString();
+      localStorage.setItem(COUNTDOWN_KEY, targetDate);
+    }
+    targetDate = parseInt(targetDate, 10);
 
     const updateTimer = () => {
       const current = new Date().getTime();
@@ -135,7 +143,6 @@ const Hero = () => {
                 Sui Move Bootcamp
               </span>
               <br />
-              
             </motion.h1>
 
             <motion.div
@@ -147,7 +154,7 @@ const Hero = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-blue-600 text-white px-8 py-4 rounded-full font-semibold text-lg flex items-center justify-center hover:bg-blue-700 transition-colors duration-300"
+                className="bg-[#4DA2FF] text-white px-8 py-4 rounded-full font-semibold text-lg flex items-center justify-center hover:bg-[#358be0] transition-colors duration-300"
               >
                 Apply Now
                 <ArrowRight className="ml-2 w-5 h-5" />
@@ -166,7 +173,7 @@ const Hero = () => {
             <div className="flex justify-center space-x-4 md:space-x-8">
               {Object.entries(timeLeft).map(([unit, value]) => (
                 <div key={unit} className="bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-xl p-4 min-w-[80px]">
-                  <div className="text-2xl md:text-3xl font-bold text-cyan-400">
+                  <div className="text-2xl md:text-3xl font-bold text-[#4DA2FF]">
                     {String(value).padStart(2, '0')}
                   </div>
                   <div className="text-gray-400 text-sm capitalize">{unit}</div>
